@@ -11,13 +11,15 @@ class Boid:
         self.screen = screen
         self.school = school
         self.pos = pygame.Vector2(random.randint(0, screen.get_width()), random.randint(0, screen.get_height())) 
-        self.max_speed = 5.0
-        self.min_speed = 3.0
+        self.max_speed = 10.0
+        self.min_speed = 6.0
         self.vel = pygame.Vector2(random.uniform(-2.0, 2.0), random.uniform(-2.0, 2.0))
         self.acc = pygame.Vector2()
         self.angle = 0
-        self.perception_radius = 25
-        self.max_alignment = 0.1
+        self.perception_radius = 30
+        self.max_alignment = 1.0
+        self.max_cohesion = 1.3
+        self.max_separation = 1.5
 
     def alignment(self):
         mate_velocities = []
@@ -39,16 +41,52 @@ class Boid:
         return pygame.Vector2(0.0, 0.0)
 
     def cohesion(self):
-        pass
+        mate_locs = []
+        for boid in self.school:
+            if self.pos.distance_to(boid.pos) > self.perception_radius:
+                continue
+            if boid == self:
+                continue
+            mate_locs.append(boid.pos)
+        if mate_locs:
+            avg_loc = pygame.Vector2(0.0, 0.0)
+            for loc in mate_locs:
+                avg_loc += loc
+            avg_loc = avg_loc / len(mate_locs)
+            accel = avg_loc - self.pos
+            if accel.magnitude() > 0:
+                accel = accel.clamp_magnitude(self.max_cohesion)
+            return accel
+        return pygame.Vector2(0.0, 0.0)
 
     def separation(self):
-        pass
+        mate_proportional_vel = []
+        for boid in self.school:
+            if self.pos.distance_to(boid.pos) > self.perception_radius:
+                continue
+            if boid == self:
+                continue
+            mate_proportional_vel.append((self.pos - boid.pos) / boid.vel.magnitude())
+        if mate_proportional_vel:
+            avg_loc = pygame.Vector2(0.0, 0.0)
+            for loc in mate_proportional_vel:
+                avg_loc += loc
+            avg_loc = avg_loc / len(mate_proportional_vel)
+            accel = avg_loc 
+            if accel.magnitude() > 0:
+                accel = accel.clamp_magnitude(self.max_separation)
+            return accel
+        return pygame.Vector2(0.0, 0.0)
+
+
 
     def perception(self):
         pass
     
     def update(self):
         self.acc = self.alignment()
+        self.acc += self.cohesion()
+        self.acc += self.separation()
         self.vel = self.vel + self.acc
         self.vel = self.vel.clamp_magnitude(self.min_speed, self.max_speed)
         self.pos = self.pos + self.vel
