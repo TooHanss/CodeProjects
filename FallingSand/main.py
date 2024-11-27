@@ -25,6 +25,9 @@ for row in range(ROWS):
 grid[1][1] = 1
 
 while run:
+    mouse_pos = pygame.Vector2(pygame.mouse.get_pos()) / CELL_SIZE
+    mouse_pos = (int(mouse_pos.y), int(mouse_pos.x))
+    print(mouse_pos)
     screen.fill((255, 255, 255))
     next_grid = []
     for row in range(ROWS):
@@ -42,6 +45,13 @@ while run:
                 if grid[row+1][column] == 0:
                     next_grid[row+1][column] = 1
                     next_grid[row][column] = 0
+                if grid[row+1][column] == 1:
+                    if grid[row+1][column+1] == 0:
+                        next_grid[row+1][column+1] = 1
+                    elif grid[row+1][column-1] == 0:
+                        next_grid[row+1][column-1] = 1
+                    else:
+                        next_grid[row][column] = 1
             if next_grid[row][column] == 1:        
                 color = WHITE
             else:
@@ -62,6 +72,8 @@ while run:
     clock.tick(10)
 
     for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            grid[mouse_pos[0]][mouse_pos[1]] = 1
         if event.type == pygame.QUIT:
             run = False
 
