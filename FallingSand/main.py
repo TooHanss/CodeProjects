@@ -1,12 +1,13 @@
 import pygame
 import math
+import numpy
 pygame.init()
 
 
-ROWS = 15
-COLUMNS = 20
-MARGIN = 1
-CELL_SIZE = 20 
+ROWS = 150
+COLUMNS = 200
+MARGIN = 0
+CELL_SIZE = 5 
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -26,9 +27,10 @@ grid[1][1] = 1
 
 while run:
     mouse_pos = pygame.Vector2(pygame.mouse.get_pos()) / CELL_SIZE
-    mouse_pos = (int(mouse_pos.y), int(mouse_pos.x))
-    print(mouse_pos)
+    mouse_pos = (numpy.clip(int(mouse_pos.y), 1, 149), numpy.clip(int(mouse_pos.x), 1, 199))
     screen.fill((255, 255, 255))
+    if pygame.mouse.get_pressed()[0]:
+            grid[mouse_pos[0]][mouse_pos[1]] = 1
     next_grid = []
     for row in range(ROWS):
         next_grid.append([])
@@ -39,19 +41,36 @@ while run:
     for row in range(ROWS):
         for column in range(COLUMNS):
             if grid[row][column] == 1:
+                # if we are on the bottom row, do nothing
                 if row+1 == ROWS:
                     next_grid[row][column] = 1
                     continue
+                # if the row underneath is empty
                 if grid[row+1][column] == 0:
                     next_grid[row+1][column] = 1
                     next_grid[row][column] = 0
+                # if the row underneath is full
                 if grid[row+1][column] == 1:
-                    if grid[row+1][column+1] == 0:
-                        next_grid[row+1][column+1] = 1
-                    elif grid[row+1][column-1] == 0:
-                        next_grid[row+1][column-1] = 1
+                    # if we are not on the left edge
+                    if column == 0:
+                        if grid[row+1][column+1] == 0:
+                            next_grid[row+1][column+1] = 1
+                        else:
+                            next_grid[row][column] = 1
+                    # if we are on the right edge
+                    if column == COLUMNS-1:
+                        if grid[row+1][column-1] == 0:
+                            next_grid[row+1][column-1] = 1
+                        else:
+                            next_grid[row][column] = 1
+                    # if we are not on an edge
                     else:
-                        next_grid[row][column] = 1
+                        if grid[row+1][column+1] == 0:
+                            next_grid[row+1][column+1] = 1
+                        elif grid[row+1][column-1] == 0:
+                            next_grid[row+1][column-1] = 1
+                        else:
+                            next_grid[row][column] = 1
             if next_grid[row][column] == 1:        
                 color = WHITE
             else:
@@ -69,11 +88,9 @@ while run:
                                                 CELL_SIZE - (MARGIN * 2)]) # X pos, Y pos, width, height
     grid = next_grid
     pygame.display.flip()
-    clock.tick(10)
+    clock.tick(60)
 
     for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            grid[mouse_pos[0]][mouse_pos[1]] = 1
         if event.type == pygame.QUIT:
             run = False
 
