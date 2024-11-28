@@ -1,4 +1,7 @@
 import pygame
+import sys
+print(sys.path)
+from utils.grid import Grid
 import math
 import numpy
 pygame.init()
@@ -17,68 +20,57 @@ SCREEN_HEIGHT = ROWS * CELL_SIZE
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) 
 clock = pygame.time.Clock()
 run = True
-grid = []
-for row in range(ROWS):
-    grid.append([])
-    for column in range(COLUMNS):
-        grid[row].append(0)
-
-grid[1][1] = 1
+grid = Grid(ROWS, COLUMNS, 0)
+grid.set(1, 1, 1)
 
 while run:
     mouse_pos = pygame.Vector2(pygame.mouse.get_pos()) / CELL_SIZE
     mouse_pos = (numpy.clip(int(mouse_pos.y), 1, 149), numpy.clip(int(mouse_pos.x), 1, 199))
     screen.fill((255, 255, 255))
     if pygame.mouse.get_pressed()[0]:
-            grid[mouse_pos[0]][mouse_pos[1]] = 1
-    next_grid = []
-    for row in range(ROWS):
-        next_grid.append([])
-        for column in range(COLUMNS):
-            next_grid[row].append(0)
-
-
+            grid.set(mouse_pos[0], mouse_pos[1], 1)
+    next_grid = Grid(ROWS, COLUMNS, 0) 
     for row in range(ROWS):
         for column in range(COLUMNS):
-            if grid[row][column] == 1:
+            if grid.get(row, column) == 1:
                 # if we are on the bottom row, do nothing
                 if row+1 == ROWS:
-                    next_grid[row][column] = 1
+                    next_grid.set(row, column, 1)
                     continue
                 # if the row underneath is empty
-                if grid[row+1][column] == 0:
-                    next_grid[row+1][column] = 1
-                    next_grid[row][column] = 0
+                if grid.get(row+1, column) == 0:
+                    next_grid.set(row+1, column, 1)
+                    next_grid.set(row, column, 0)
                 # if the row underneath is full
-                if grid[row+1][column] == 1:
+                if grid.get(row+1, column) == 1:
                     # if we are not on the left edge
                     if column == 0:
-                        if grid[row+1][column+1] == 0:
-                            next_grid[row+1][column+1] = 1
+                        if grid.get(row+1, column+1) == 0:
+                            next_grid.set(row+1, column+1, 1)
                         else:
-                            next_grid[row][column] = 1
+                            next_grid.set(row, column, 1)
                     # if we are on the right edge
                     if column == COLUMNS-1:
-                        if grid[row+1][column-1] == 0:
-                            next_grid[row+1][column-1] = 1
+                        if grid.get(row+1, column-1) == 0:
+                            next_grid.set(row+1, column-1, 1)
                         else:
-                            next_grid[row][column] = 1
+                            next_grid.set(row, column, 1)
                     # if we are not on an edge
                     else:
-                        if grid[row+1][column+1] == 0:
-                            next_grid[row+1][column+1] = 1
-                        elif grid[row+1][column-1] == 0:
-                            next_grid[row+1][column-1] = 1
+                        if grid.get(row+1, column+1) == 0:
+                            next_grid.set(row+1, column+1, 1)
+                        elif grid.get(row+1, column-1) == 0:
+                            next_grid.set(row+1, column-1, 1)
                         else:
-                            next_grid[row][column] = 1
-            if next_grid[row][column] == 1:        
+                            next_grid.set(row, column, 1)
+            if next_grid.get(row, column) == 1:        
                 color = WHITE
             else:
                 color = BLACK
             
     for row in range(ROWS):
         for column in range(COLUMNS):        
-            if next_grid[row][column] == 1:        
+            if next_grid.get(row, column) == 1:        
                 color = WHITE
             else:
                 color = BLACK
