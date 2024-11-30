@@ -1,7 +1,7 @@
 import pygame
 import sys
 print(sys.path)
-from utils.grid import Grid
+from utils.grid.grid import Grid
 import math
 import numpy
 pygame.init()
