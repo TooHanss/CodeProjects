@@ -12,7 +12,6 @@ class Grid:
         try:
             return self.grid[pos[0]][pos[1]]
         except:
-            print(f'Tried to get value from {pos} but it is out of range.')
             return None
 
     def set_value(self, pos, value):
