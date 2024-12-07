@@ -1,0 +1,242 @@
+{
+    "StaticMeshActor_1": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Base_01.fbx",
+        "transform": {
+            "loc": [
+                229.591494,
+                1520.408568,
+                50.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                90.00000000000001
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_2": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Top_01.fbx",
+        "transform": {
+            "loc": [
+                229.591494,
+                1520.408568,
+                1250.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                90.00000000000001
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_208": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Base_01.fbx",
+        "transform": {
+            "loc": [
+                479.5914944867718,
+                1520.4085683222543,
+                50.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                89.99999960565397
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_209": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Top_01.fbx",
+        "transform": {
+            "loc": [
+                479.5914944867718,
+                1520.4085683222543,
+                1250.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                89.99999960565397
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_210": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                479.5914944867718,
+                1520.4085683222543,
+                450.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                89.99999960565397
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_211": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                479.5914944867718,
+                1520.4085683222543,
+                650.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                6.056541135279757e-07
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_212": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                479.5914944867718,
+                1520.4085683222543,
+                850.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                6.056541135279757e-07
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_213": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                479.5914944867718,
+                1520.4085683222543,
+                1050.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                -89.99999839434601
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_3": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                229.591494,
+                1520.408568,
+                450.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                90.00000000000001
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_4": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                229.591494,
+                1520.408568,
+                650.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                9.999999999999997e-07
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_5": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                229.591494,
+                1520.408568,
+                850.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                9.999999999999997e-07
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "StaticMeshActor_6": {
+        "source_mesh": "C:/Users/fruit/Documents/Fun Projects/DwarvernPuzzleGame/Environment/ModularRooms/SM_Pillar_Middle_01.fbx",
+        "transform": {
+            "loc": [
+                229.591494,
+                1520.408568,
+                1050.0
+            ],
+            "rot": [
+                0.0,
+                0.0,
+                -89.999998
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    }
+}

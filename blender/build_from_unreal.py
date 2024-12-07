@@ -1,0 +1,8 @@
+import bpy
+
+files = [r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx",r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx",r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx", r"C:\Users\fruit\Desktop\tes\SM_Pillar_Middle_01 - Copy - Copy.fbx"]
+
+for file in files:
+   bpy.ops.import_scene.fbx(filepath=file)
+
+bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\fruit\Desktop\tes\test.blend")
