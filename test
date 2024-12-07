@@ -1,0 +1,6 @@
+import pygame
+
+def my_func(text):
+    print(text)
+
+my_func('yahoaaaaaaaaao')
